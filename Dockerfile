@@ -6,7 +6,7 @@ RUN apt-get install -y --reinstall build-essential libncurses-dev rsync unzip bc
 RUN git clone git://git.buildroot.net/buildroot /buildroot
 WORKDIR /buildroot
 
-RUN make clean all 2>&1 >/dev/null
+RUN make clean all 2>&1
 
 RUN mkdir -p docker/openvpn/
 RUN wget https://gist.github.com/Croncron85/13146c07be798926694e#file-init-sh -O docker/openvpn/init.sh
