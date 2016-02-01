@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 RUN apt-get update
-RUN apt-get install -y --reinstall build-essential libncurses-dev rync unzip bc git python wget
+RUN apt-get install -y --reinstall build-essential libncurses-dev rsync unzip bc git python wget
 
 RUN git clone git://git.buildroot.net/buildroot
 WORKDIR /buildroot
