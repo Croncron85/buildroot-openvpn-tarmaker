@@ -1,4 +1,7 @@
 FROM ubuntu:14.04
+
+ENV TERM dumb
+
 RUN apt-get update
 RUN apt-get install -y --reinstall build-essential libncurses-dev rsync unzip bc git python wget
 
