@@ -13,6 +13,6 @@ RUN apt-get update && \
   make clean all && \
   mkdir -p /output/images && \
   mv /buildroot/output/images/rootfs.tar /output/images/rootfs.tar  && \
-  apt-get purge --auto-remove build-essential libncurses-dev rsync unzip bc git python wget && \
+  apt-get purge -y --auto-remove build-essential libncurses-dev rsync unzip bc git python wget && \
   cd / && \
   rm -rf /buildroot
