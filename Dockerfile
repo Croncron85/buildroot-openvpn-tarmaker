@@ -1,14 +1,12 @@
 FROM ubuntu:14.04
 
-ENV TERM dumb
-
 RUN apt-get update
 RUN apt-get install -y --reinstall build-essential libncurses-dev rsync unzip bc git python wget
 
 RUN git clone git://git.buildroot.net/buildroot /buildroot
 WORKDIR /buildroot
 
-RUN make clean all
+RUN make clean all 2>&1 >/dev/null
 
 RUN mkdir -p docker/openvpn/
 RUN wget https://gist.github.com/Croncron85/13146c07be798926694e#file-init-sh -O docker/openvpn/init.sh
