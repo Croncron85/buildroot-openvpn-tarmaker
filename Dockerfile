@@ -7,7 +7,7 @@ RUN apt-get update && \
   wget https://gist.github.com/Croncron85/13146c07be798926694e#file-init-sh -O /buildroot/docker/openvpn/init.sh && \
   wget https://gist.github.com/Croncron85/13146c07be798926694e#file-post-sh -O /buildroot/docker/openvpn/post.sh && \
   chmod +x /buildroot/docker/openvpn/post.sh && \
-  wget https://gist.github.com/Croncron85/3e87a87e263fefe28f60 -O /buildroot/.config && \
+  wget https://gist.github.com/Croncron85/3e87a87e263fefe28f60#file-config -O /buildroot/.config && \
   cd /buildroot && \
   make olddefconfig && \
   make clean all && \
