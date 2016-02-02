@@ -3,13 +3,11 @@ FROM ubuntu:14.04
 RUN apt-get update && \
   apt-get install -y --reinstall build-essential libncurses-dev rsync unzip bc git python wget && \
   git clone https://github.com/Croncron85/buildroot.git /buildroot && \
-  mkdir -p /buildroot/docker/openvpn && \
-  wget https://gist.github.com/Croncron85/13146c07be798926694e/raw/init.sh -O /buildroot/docker/openvpn/init.sh && \
-  wget https://gist.github.com/Croncron85/13146c07be798926694e/raw/post.sh -O /buildroot/docker/openvpn/post.sh && \
-  chmod +x /buildroot/docker/openvpn/post.sh && \
-  wget https://gist.github.com/Croncron85/3e87a87e263fefe28f60/raw/.config -O /buildroot/.config && \
+  git clone https://github.com/Croncron85/buildroot-openvpn-tarmaker.git /tarmaker && \
+  rsync -av /tarmaker/ /buildroot/ && \
+  rm -rf /tarmaker && \
   cd /buildroot && \
-  make olddefconfig && \
+  make x86_64_openvpn_defconfig && \
   make clean all && \
   mkdir -p /output/images && \
   mv /buildroot/output/images/rootfs.tar /output/images/rootfs.tar  && \
