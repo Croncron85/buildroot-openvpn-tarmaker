@@ -4,9 +4,9 @@ RUN apt-get update && \
   apt-get install -y --reinstall build-essential libncurses-dev rsync unzip bc git python wget && \
   git clone https://github.com/Croncron85/buildroot.git /buildroot && \
   git clone https://github.com/Croncron85/buildroot-openvpn-tarmaker.git /tarmaker && \
+  chmod +x /tarmaker/docker/openvpn/post.sh && \
   rsync -av /tarmaker/ /buildroot/ && \
   rm -rf /tarmaker && \
-  chmod +x /buildroot/docker/openvpn/post.sh && \
   cd /buildroot && \
   make x86_64_openvpn_defconfig && \
   make clean all && \
