@@ -6,6 +6,7 @@ RUN apt-get update && \
   git clone https://github.com/Croncron85/buildroot-openvpn-tarmaker.git /tarmaker && \
   rsync -av /tarmaker/ /buildroot/ && \
   rm -rf /tarmaker && \
+  chmod +x /buildroot/docker/openvpn/post.sh && \
   cd /buildroot && \
   make x86_64_openvpn_defconfig && \
   make clean all && \
